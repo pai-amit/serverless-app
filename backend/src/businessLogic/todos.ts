@@ -1,16 +1,16 @@
 import * as uuid from 'uuid'
-import TodosAccess from "../data/todos"
-import { TodoItem } from "../../models/TodoItem"
-import { CreateTodoRequest } from "../../requests/CreateTodoRequest"
-import { TodoUpdate } from '../../models/TodoUpdate'
-import { getAttachmentUrl } from './storage'
+import TodosAccess from "../dataLayer/todos"
+import { TodoItem } from "../models/TodoItem"
+import { CreateTodoRequest } from "../requests/CreateTodoRequest"
+import { TodoUpdate } from '../models/TodoUpdate'
+import { getImageUrl } from './store'
 
 const todosAccess = new TodosAccess()
 
 export async function getTodos(userId: string): Promise<TodoItem[]> {
     const result = await todosAccess.getTodos(userId)
     for (const item of result) {
-        const url = await getAttachmentUrl(item.todoId)
+        const url = await getImageUrl(item.todoId)
         if (url) {
             item.attachmentUrl = url
         }

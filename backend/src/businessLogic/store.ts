@@ -1,11 +1,11 @@
-import Attachment from '../dataLayer/store'
+import ImageUpload from '../dataLayer/store'
 
-const attachment = new Attachment()
+const imageUpload = new ImageUpload()
 
-export async function getAttachmentUrl(todoId: string): Promise<string> {
-    return await attachment.getAttachmentUrl(todoId)
+export async function getImageUrl(todoId: string): Promise<string> {
+    return await imageUpload.getImageUrl(todoId)
 }
 
-export function getSignedUrl(todoId: string): string | null {
-    return attachment.getSignedUrl(todoId)
+export function getImageSignedUrl(todoId: string): string | null {
+    return imageUpload.getImageSignedUrl(todoId)
 }
