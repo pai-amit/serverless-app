@@ -4,7 +4,7 @@ import { S3 } from 'aws-sdk'
 
 const XAWS = AWSXRay.captureAWS(AWS)
 
-export default class AttachmentsStorage {
+export default class ImageUpload {
     constructor(
         private readonly s3Client: S3 = new XAWS.S3({
             signatureVersion: 'v4'
@@ -13,7 +13,7 @@ export default class AttachmentsStorage {
         private readonly signedUrlExpireSeconds = 1200
     ) {}
 
-    async getAttachmentUrl(todoId: string): Promise<string | null> {
+    async getImageUrl(todoId: string): Promise<string | null> {
         try {
             await this.s3Client.headObject({
                 Bucket: this.imagesBucket,
@@ -29,7 +29,7 @@ export default class AttachmentsStorage {
         }
     }
 
-    getPresignedUrl(todoId: string): string {
+    getImageSignedUrl(todoId: string): string {
         return this.s3Client.getSignedUrl('putObject', {
             Bucket: process.env.IMAGES_BUCKET,
             Key: `${todoId}.png`,

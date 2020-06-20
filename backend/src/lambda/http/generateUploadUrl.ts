@@ -3,7 +3,7 @@ import { cors } from 'middy/middlewares'
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda'
 import { getUserId } from '../utils'
 import { createLogger } from '../../utils/logger'
-import { getSignedUrl } from '../../businessLogic/store'
+import { getImageSignedUrl } from '../../businessLogic/store'
 import { getTodoById } from '../../businessLogic/todos'
 import 'source-map-support/register'
 
@@ -27,7 +27,7 @@ export const handler = middy(async (event: APIGatewayProxyEvent): Promise<APIGat
   return {
     statusCode: 200,
     body: JSON.stringify({
-      uploadUrl: getSignedUrl(todoId)
+      uploadUrl: getImageSignedUrl(todoId)
     })
   }
 }).use(

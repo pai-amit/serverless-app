@@ -15,7 +15,7 @@ provider:
   environment:
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
     TODOS_TABLE: ToDo-${self:provider.stage}
-    IMAGES_BUCKET: ToDo_Bucket_AmitPai-${self:provider.stage}
+    IMAGES_BUCKET: todo-bucket-amitpai-${self:provider.stage}
     CREATED_AT_INDEX: createdAtIndex
   stage: ${opt:stage, 'dev'}
   region: ${opt:region, 'us-east-1'}
