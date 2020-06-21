@@ -1,3 +1,5 @@
+org: amitmpai
+app: serverless-app-app
 service:
   name: serverless-app
 
