@@ -4,5 +4,5 @@ export const apiEndpoint = `https://${apiId}.execute-api.us-east-1.amazonaws.com
 export const authConfig = {
   domain: 'pai-amit.us.auth0.com', // Auth0 domain
   clientId: 'Spv4K7vYAoYdUqDEQJazkSDsDHN8n7uX', // Auth0 client id
-  callbackUrl: 'http://54.173.210.207:3000/callback'
+  callbackUrl: 'http://localhost:3000/callback'
 }
